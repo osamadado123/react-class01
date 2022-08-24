@@ -11,28 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.header{
-  text-align: center;
+.card{
+  margin-left:200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+ 
 }
 .footer{
   text-align: center;
+  background-color: rgb(196, 190, 190);
 }
-.main img{
-width: 500px;
-height: 500px;
-position: relative;
-padding-left: 230px;
+.header{
+  text-align: center;
 
 }
-.main h2{
-  text-align: center;
-}
-.main p{
-  text-align: center;
-}
-.main{
-  border: 1px solid black;
-  margin-left: 200px;
-  margin-right: 200px;
-
+.minMain{
+  padding-left: 200px;
+  padding-right: 300px;
+  margin-top: 30px;
+  margin-bottom:30px;
+  background-color: rgb(196, 190, 190);
 }
