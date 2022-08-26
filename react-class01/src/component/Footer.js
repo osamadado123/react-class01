@@ -1,17 +1,13 @@
-import React from "react";
+import React from 'react';
 
-class Footer extends React.Component{
-
-    render(){
-        return(
+class Footer extends React.Component {
+    render() {
+        return (
             <>
-        <h3>&copy; all rights reserved Osama</h3>
-       
-       
-
-        
-        </>
+            <p className="footer"> Copyright © 2022 All Rights Reserved | Developed By Osama Maher </p>
+            </>
         )
     }
 }
+
 export default Footer;
