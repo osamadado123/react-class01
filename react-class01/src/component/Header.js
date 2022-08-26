@@ -1,10 +1,25 @@
-import React from "react";
+import React from 'react'
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-class Headers extends React.Component{
-    render(){
-        return(
-        <h1>lab01</h1>
+class Header extends React.Component {
+
+    
+    render() {
+        return (
+            <Navbar bg="auto" expand="lg" variant='dark'>
+            <Navbar.Brand href="#home">HornedBeast</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+            <Nav.Link href="HornedBeast">Home</Nav.Link>
+            </Nav>
+            </Navbar.Collapse>
+           </Navbar>
+           
+            
         )
-        }
+    }
 }
-export default Headers;
+
+export default Header;

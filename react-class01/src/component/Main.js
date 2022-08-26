@@ -1,16 +1,38 @@
-import React from "react";
-import HornedBeast from "./hornedBeast";
+import React from 'react';
+import HornedBeast from './hornedBeast';
+import CardGroup from 'react-bootstrap/CardGroup';
 
-class Main extends React.Component{
-    render() {
 
-        return (
-          <>
-          <HornedBeast title="UniWhal" img="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg" disc="A unicorn and a narwhal nuzzling their horns" />
-          <HornedBeast title="Rhino Family" img="https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80" disc="Parent rhino with two babies" />
-          </>
-        )
-         
-      }
+class Main extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state={
+            SelectedBeast:this.props.horneddata
+        }
     }
-export default Main;
+
+    render() {
+        return (
+        <div>
+
+            <CardGroup >
+                {this.state.SelectedBeast.map((item,index)=>
+
+                <HornedBeast 
+                key={index} 
+                imgUrl={item.image_url} 
+                title={item.title} 
+                description={item.description}
+                horns={item.horns}
+                displayCardAsModel={this.props.displayCardAsModel}
+                />
+                )}
+
+            </CardGroup>
+        </div>
+        )
+    }
+}
+
+export default Main; 
