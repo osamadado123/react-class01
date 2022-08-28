@@ -1,37 +1,68 @@
 import React from 'react';
-import Modal from 'react-bootstrap/Modal'
+import Card from 'react-bootstrap/Card';
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+
 
 
 class SelectedBeast extends React.Component {
 
-    handleClose=() => {
-      this.props.handleClose();
-    }
-
     render() {
-        return(
+        return (
+            <div>
+                  
+                <Modal show={this.props.show}>
 
-       <Modal 
-       show={this.props.showSelectedHorned} 
-        size={'md'}
-        animation={'true'} 
-        onHide={this.handleClose}>      
-        <Modal.Header closeButton>
-        <Modal.Title>{this.props.displayHornedObject.title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <img src={this.props.displayHornedObject.image_url} width = "250x250" alt={this.props.displayHornedObject.title}/> <br/>
-        </Modal.Body>    
-        <Modal.Body>
-        <p>{this.props.displayHornedObject.description}</p><br/>
-        </Modal.Body>
-        <Modal.Footer>
-        <Button variant="danger" onClick={this.handleClose}> Close </Button>
-        </Modal.Footer>
-        </Modal>
-            )
-          }
-        }
+                    <Modal.Header>
+
+                        <Modal.Title >
+
+                            {this.props.upImage.title}
+
+                        </Modal.Title>
+
+                    </Modal.Header>
+
+                    <Modal.Body>
+                    
+                        <Card>
+                            <Card.Img variant="top" src={this.props.upImage.image} />
+
+                            <Card.Body>
+
+
+                                <Card.Title>{this.props.upImage.title}</Card.Title>
+
+                                <Card.Text>
+                                    {this.props.upImage.description},
+
+
+                                    {this.props.upImage.keyword},
+
+
+                                    {this.props.upImage.horns},
+                                    
+
+                                </Card.Text>
+
+                            </Card.Body>
+
+                        </Card>
+                        
+
+                    </Modal.Body>
+
+                    <Modal.Footer>
+
+                        <Button onClick={this.props.handleClose} variant="info">Close</Button>
+
+                    </Modal.Footer>
+
+                </Modal>
+               
+            </div >
+        );
+    }
+}
 
 export default SelectedBeast;

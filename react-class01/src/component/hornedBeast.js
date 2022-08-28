@@ -1,44 +1,59 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 
-class HornedBeast extends React.Component{
+import CardGroup from 'react-bootstrap/CardGroup'
 
-    constructor(props){
+
+class HornedBeast extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            likesCounter: 0
+            NumOfClicks: 0
         }
     }
 
-   likesCounter = ()=>{
-       this.setState({
-           likesCounter: this.state.likesCounter+1
-       })
-   }
+    NumClicks = (cardprops) => {
+        let value = this.state.NumOfClicks;
+        this.setState({ NumOfClicks: value += 1 })
 
-displayAsCard = ()=>{
-    this.props.displayCardAsModel(this.props.title)
-}  
+        this.props.handleClose(cardprops);
 
-   
+    }
+
+
     render() {
+
         return (
             <div>
-            <Card style={{ width: '14rem'}}>
-            <Card.Img 
-            variant="top" 
-            src={this.props.imgUrl} 
-            title={this.props.title} 
-            onClick={this.displayAsCard}
-            />
-            <Card.Body>
-                <Card.Title>{this.props.title}</Card.Title>
-                <Card.Text>Number Of Likes ❤{this.state.likesCounter}</Card.Text>
-               
-                <Button variant="dark" onClick={this.likesCounter} >Vote Here</Button>
-            </Card.Body>
-            </Card>
+                
+                <CardGroup>
+                <Card style={{ width: '18rem', height: '35rem' }}>
+                    <Card.Img variant="top" src={this.props.image}
+                        onClick={() => {
+                            this.NumClicks(this.props);
+                            
+                        }}
+                    />
+                    <Card.Body>
+                        <Card.Title>{this.props.title}</Card.Title>
+
+                        <Card.Text>
+
+                            ❤️ = {this.state.NumOfClicks}
+
+                        </Card.Text>
+
+                        <Card.Text>
+                            {this.props.description}
+                            {this.props.keyword} 
+                            {this.props.horns}
+                        </Card.Text>
+
+                    </Card.Body>
+                </Card>
+                </CardGroup>
+                
             </div>
         )
     }
